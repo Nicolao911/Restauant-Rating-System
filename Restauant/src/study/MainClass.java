@@ -50,6 +50,7 @@ public class MainClass {
 				manager.searchData();
 				break;
 			case 3:
+				manager.update();
 				break;
 			case 4:
 				break;

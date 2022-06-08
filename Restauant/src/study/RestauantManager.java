@@ -38,32 +38,37 @@ public class RestauantManager {
 	 */
 	void searchData() {
 		System.out.println("검색할 식당명을 입력해주세요 : ");
-		String searchName = sc.nextLine(); // 여기 이거 확인
-		boolean isExist = false;	
-		//순회
-		Iterator<Restaurant> iter = resList.iterator();
-		while (iter.hasNext()) {
-			Restaurant r = iter.next();
-			if (searchName.equals(r.getTitle())) {
-				r.showInfo();
-				isExist = true;
-			}
-		}
-		System.out.println(isExist == true ?  "" : "해당하는 식당 데이터가 없습니다 \n");
-	}
-	
-	void update() {
-		System.out.println("수정할 식당명을 입력해주세요 : ");
-		title = sc.nextLine();
+		title = sc.nextLine(); 
 		boolean isExist = false;	
 		//순회
 		Iterator<Restaurant> iter = resList.iterator();
 		while (iter.hasNext()) {
 			Restaurant r = iter.next();
 			if (title.equals(r.getTitle())) {
-				r.setTitle(title);
+				r.showInfo();
+				isExist = true;
+				break;
+			}
+		}
+		System.out.println(isExist == true ?  "" : "해당하는 식당 데이터가 없습니다 \n");
+	}
+	
+	void update() {
+		System.out.println("변경을 원하시는 식당명을 입력해주세요 : ");
+		title = sc.nextLine();
+		boolean isExist = false;
+		
+		System.out.println("수정할 식당명을 입력해주세요 : ");
+		String updtTitle = sc.nextLine();
+		//순회
+		Iterator<Restaurant> iter = resList.iterator();
+		while (iter.hasNext()) {
+			Restaurant r = iter.next();
+			if (title.equals(r.getTitle())) {
+				r.setTitle(updtTitle);     
 				isExist = true;
 				System.out.println("데이터 수정 완료");
+				break;
 			}
 		}
 		System.out.println(isExist == true ?  "" : "해당하는 식당 데이터가 없습니다 \n");
